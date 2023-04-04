@@ -33,20 +33,155 @@ class DictionaryPage extends GetView<DictionaryController> {
               ),
               Expanded(
                   child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Container(
-                      child: Row(
-                        children: [
-                          Icon(Icons.abc),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Text("重い")
-                        ],
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  child: Column(
+                    children: [
+                      Container(
+                        child: Row(
+                          children: [
+                            Icon(Icons.abc, size: 50,),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text("重い", style: FishwordFont.baseFont,)
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                      Container(
+                        child: Row(
+                          children: [
+                            Icon(Icons.abc, size: 50,),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text("重い", style: FishwordFont.baseFont,)
+                          ],
+                        ),
+                      ),
+                      Container(
+                        child: Row(
+                          children: [
+                            Icon(Icons.abc, size: 50,),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text("重い", style: FishwordFont.baseFont,)
+                          ],
+                        ),
+                      ),
+                      Container(
+                        child: Row(
+                          children: [
+                            Icon(Icons.abc, size: 50,),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text("重い", style: FishwordFont.baseFont,)
+                          ],
+                        ),
+                      ),
+                      Container(
+                        child: Row(
+                          children: [
+                            Icon(Icons.abc, size: 50,),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text("重い", style: FishwordFont.baseFont,)
+                          ],
+                        ),
+                      ),
+                      Container(
+                        child: Row(
+                          children: [
+                            Icon(Icons.abc, size: 50,),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text("重い", style: FishwordFont.baseFont,)
+                          ],
+                        ),
+                      ),
+                      Container(
+                        child: Row(
+                          children: [
+                            Icon(Icons.abc, size: 50,),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text("重い", style: FishwordFont.baseFont,)
+                          ],
+                        ),
+                      ),
+                      Container(
+                        child: Row(
+                          children: [
+                            Icon(Icons.abc, size: 50,),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text("重い", style: FishwordFont.baseFont,)
+                          ],
+                        ),
+                      ),
+                      Container(
+                        child: Row(
+                          children: [
+                            Icon(Icons.abc, size: 50,),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text("重い", style: FishwordFont.baseFont,)
+                          ],
+                        ),
+                      ),
+                      Container(
+                        child: Row(
+                          children: [
+                            Icon(Icons.abc, size: 50,),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text("重い", style: FishwordFont.baseFont,)
+                          ],
+                        ),
+                      ),
+                      Container(
+                        child: Row(
+                          children: [
+                            Icon(Icons.abc, size: 50,),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text("重い", style: FishwordFont.baseFont,)
+                          ],
+                        ),
+                      ),
+                      Container(
+                        child: Row(
+                          children: [
+                            Icon(Icons.abc, size: 50,),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text("重い", style: FishwordFont.baseFont,)
+                          ],
+                        ),
+                      ),
+                      Container(
+                        child: Row(
+                          children: [
+                            Icon(Icons.abc, size: 50,),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Text("重い", style: FishwordFont.baseFont,)
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ))
             ],
