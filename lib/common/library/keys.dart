@@ -1,0 +1,1 @@
+const taskKey = 'fishword';
