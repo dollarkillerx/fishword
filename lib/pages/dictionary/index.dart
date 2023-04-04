@@ -28,7 +28,7 @@ class DictionaryPage extends GetView<DictionaryController> {
                 ),
               ),
               Text(
-                "浏览历史",
+                "浏览历史: ",
                 style: FishwordFont.baseFont,
               ),
               Expanded(
