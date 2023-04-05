@@ -1,5 +1,7 @@
 import 'package:fishword/pages/book/controller.dart';
 import 'package:fishword/pages/book/provider.dart';
+import 'package:fishword/pages/dictation/controller.dart';
+import 'package:fishword/pages/dictation/provider.dart';
 import 'package:fishword/pages/dictionary/controller.dart';
 import 'package:fishword/pages/dictionary/provider.dart';
 import 'package:fishword/pages/front/controller.dart';
@@ -22,5 +24,8 @@ class HomeBinding extends Bindings {
 
     Get.lazyPut<BookController>(() => BookController());
     Get.lazyPut<BookProvider>(() => BookProvider());
+
+    Get.lazyPut<DictationController>(() => DictationController());
+    Get.lazyPut<DictationProvider>(() => DictationProvider());
   }
 }

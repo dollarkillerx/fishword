@@ -1,4 +1,5 @@
 import 'package:fishword/common/routers/app_routes.dart';
+import 'package:fishword/common/state_machine/dictation_state_machine.dart';
 import 'package:fishword/constants/colors.dart';
 import 'package:fishword/widgets/debounce_text.dart';
 import 'package:flutter/material.dart';
@@ -41,29 +42,60 @@ class DictionaryPage extends GetView<DictionaryController> {
                   child: Column(
                     children: [
                       ...?controller.dicts?.map((e) => InkWell(
-                        onTap: () {
-                          Get.toNamed(AppRoutes.DictionaryDetails, arguments: {
-                            "dict": e,
-                          });
-                        },
-                        child: Container(
-                          child: Row(
-                            children: [
-                              Icon(
-                                Icons.abc,
-                                size: 50,
+                            onTap: () {
+                              Get.toNamed(AppRoutes.DictionaryDetails,
+                                  arguments: {
+                                    "dict": e,
+                                  });
+                            },
+                            child: Container(
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Icon(
+                                        Icons.abc,
+                                        size: 50,
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Text(
+                                        '${e.word}  ${e.katakana}',
+                                        style: FishwordFont.baseFont,
+                                      )
+                                    ],
+                                  ),
+                                  InkWell(
+                                    onTap: () {
+                                      if (!DictationStateMachine().checkIn(e)) {
+                                        DictationStateMachine().add(e);
+                                      } else {
+                                        DictationStateMachine().del(e);
+                                      }
+                                      controller.toRefresh();
+                                    },
+                                    child: Container(
+                                      padding: EdgeInsets.symmetric(
+                                          vertical: 5, horizontal: 10),
+                                      child: Text(
+                                        DictationStateMachine().checkIn(e)
+                                            ? "移除听写"
+                                            : "添加听写",
+                                        style: TextStyle(fontSize: 17),
+                                      ),
+                                      decoration: BoxDecoration(
+                                        color: Colors.grey.withOpacity(0.2),
+                                        borderRadius: BorderRadius.circular(15),
+                                      ),
+                                    ),
+                                  )
+                                ],
                               ),
-                              SizedBox(
-                                width: 10,
-                              ),
-                              Text(
-                                '${e.word}  ${e.katakana}',
-                                style: FishwordFont.baseFont,
-                              )
-                            ],
-                          ),
-                        ),
-                      ))
+                            ),
+                          ))
                     ],
                   ),
                 ),

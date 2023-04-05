@@ -1,4 +1,5 @@
 import 'package:fishword/pages/book/index.dart';
+import 'package:fishword/pages/dictation/index.dart';
 import 'package:fishword/pages/dictionary/index.dart';
 import 'package:fishword/pages/front/index.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,7 @@ class HomePage extends GetView<HomeController> {
               children: [
                 FrontPage(),
                 DictionaryPage(),
+                DictationPage(),
                 BookPage(),
               ],
               index: controller.navigationBarAction.value,
@@ -23,6 +25,11 @@ class HomePage extends GetView<HomeController> {
               onTap: (idx) {
                 controller.navigationBarAction.value = idx;
               },
+              selectedItemColor: Colors.orange,
+              unselectedItemColor: Colors.grey,
+              showSelectedLabels: true,
+              showUnselectedLabels: true,
+              type: BottomNavigationBarType.fixed,
               items: [
                 BottomNavigationBarItem(
                   icon: Icon(Icons.abc),
@@ -31,6 +38,10 @@ class HomePage extends GetView<HomeController> {
                 BottomNavigationBarItem(
                   icon: Icon(Icons.batch_prediction_outlined),
                   label: '词典',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.music_note_outlined),
+                  label: '听写',
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.book_outlined),

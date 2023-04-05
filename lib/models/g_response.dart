@@ -85,7 +85,8 @@ class UserJWT {
 
   UserJWT(this.userId, this.accessToken);
 
-  factory UserJWT.fromJson(Map<String, dynamic> json) => _$UserJWTFromJson(json);
+  factory UserJWT.fromJson(Map<String, dynamic> json) =>
+      _$UserJWTFromJson(json);
 
   Map<String, dynamic> toJson() => _$UserJWTToJson(this);
 }
@@ -96,8 +97,7 @@ class Dicts {
 
   Dicts({required this.dicts});
 
-  factory Dicts.fromJson(Map<String, dynamic> json) =>
-      _$DictsFromJson(json);
+  factory Dicts.fromJson(Map<String, dynamic> json) => _$DictsFromJson(json);
 
   Map<String, dynamic> toJson() => _$DictsToJson(this);
 }
@@ -132,8 +132,7 @@ class Simple {
 
   Simple({required this.attribute, required this.explains});
 
-  factory Simple.fromJson(Map<String, dynamic> json) =>
-      _$SimpleFromJson(json);
+  factory Simple.fromJson(Map<String, dynamic> json) => _$SimpleFromJson(json);
 
   Map<String, dynamic> toJson() => _$SimpleToJson(this);
 }

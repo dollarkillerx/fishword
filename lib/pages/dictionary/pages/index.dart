@@ -28,7 +28,8 @@ class DictionaryDetailsPage extends GetView<DictionaryDetailsController> {
                   ),
                   InkWell(
                     child: Container(
-                      padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                      padding:
+                          EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                       child: Text(
                         "添加到生词本",
                         style: TextStyle(fontSize: 17),
@@ -55,6 +56,8 @@ class DictionaryDetailsPage extends GetView<DictionaryDetailsController> {
                     ),
                     onTap: () async {
                       final player = AudioPlayer(); // Create a player
+                      print(controller.dict.audioUrl);
+                      // player.setAsset(assetPath)
                       player.setUrl(// Load a URL
                           controller.dict
                               .audioUrl); // Schemes: (https: | file: | asset: )

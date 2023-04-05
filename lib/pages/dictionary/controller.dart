@@ -1,3 +1,4 @@
+import 'package:fishword/common/state_machine/dictation_state_machine.dart';
 import 'package:fishword/pages/dictionary/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -24,5 +25,9 @@ class DictionaryController extends GetxController {
       update();
     }
     return;
+  }
+
+  toRefresh() {
+    update();
   }
 }
