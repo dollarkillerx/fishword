@@ -5,6 +5,7 @@ import 'package:fishword/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:just_audio/just_audio.dart';
+import '../../common/routers/app_routes.dart';
 import 'controller.dart';
 
 class DictationPage extends GetView<DictationController> {
@@ -169,26 +170,33 @@ class DictationPage extends GetView<DictationController> {
               SizedBox(
                 height: 10,
               ),
-              ...DictationStateMachine().words().map((e) => Container(
-                    padding: EdgeInsets.all(10),
-                    margin: EdgeInsets.only(bottom: 5),
-                    decoration: BoxDecoration(
-                      color: Colors.grey.withOpacity(0.1),
-                      borderRadius: BorderRadius.circular(15),
+              ...DictationStateMachine().words().map((e) => InkWell(
+                    child: Container(
+                      padding: EdgeInsets.all(10),
+                      margin: EdgeInsets.only(bottom: 5),
+                      decoration: BoxDecoration(
+                        color: Colors.grey.withOpacity(0.1),
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            e.word,
+                            style: FishwordFont.baseFont.copyWith(fontSize: 23),
+                          ),
+                          Text(
+                            e.katakana,
+                            style: FishwordFont.baseFont.copyWith(fontSize: 18),
+                          )
+                        ],
+                      ),
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          e.word,
-                          style: FishwordFont.baseFont.copyWith(fontSize: 23),
-                        ),
-                        Text(
-                          e.katakana,
-                          style: FishwordFont.baseFont.copyWith(fontSize: 18),
-                        )
-                      ],
-                    ),
+                    onTap: () {
+                      Get.toNamed(AppRoutes.DictionaryDetails, arguments: {
+                        "dict": e,
+                      });
+                    },
                   ))
             ],
           ),
