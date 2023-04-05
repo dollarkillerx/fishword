@@ -1,22 +1,26 @@
 import '../../common/library/base_provider.dart';
 
 class DictionaryProvider extends BaseProvider {
-  friendships() => gQuery(graphSQL: userListSQL);
+  dict(String world) => gQuery(graphSQL: dictSQL, variables: {
+        'world': world,
+      });
 }
 
-var userListSQL = '''
-query friendships {
-  friendship {
-    friendships {
-      accountId
-      account
-      fullName
-      nickName
-      birthday
-      email
-      about
-      avatar
+var dictSQL = '''
+query dict(\$world: String!) {
+  dict(word: \$world) {
+    dicts{
+      id
+      word
+      katakana
+      audioUrl
+      simple{
+        attribute
+        explains
+      }
+      exampleSentences
     }
   }
 }
+
 ''';

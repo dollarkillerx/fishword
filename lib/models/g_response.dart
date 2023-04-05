@@ -77,120 +77,63 @@ class GErrorItem {
 }
 
 @JsonSerializable()
-class RecommendModel {
-  String title;
-  String score;
-  String subTitle;
-  String img;
-  String author;
-  String authorImg;
-  String type;
+class UserJWT {
+  @JsonKey(name: 'userID')
+  final String userId;
+  @JsonKey(name: 'accessTokenString')
+  final String accessToken;
 
-  factory RecommendModel.fromJson(Map<String, dynamic> json) =>
-      _$RecommendModelFromJson(json);
+  UserJWT(this.userId, this.accessToken);
 
-  Map<String, dynamic> toJson() => _$RecommendModelToJson(this);
+  factory UserJWT.fromJson(Map<String, dynamic> json) => _$UserJWTFromJson(json);
 
-  RecommendModel(this.title, this.score, this.subTitle, this.img, this.author,
-      this.authorImg, this.type);
-
-  static List<RecommendModel> genFake() {
-    return [
-      RecommendModel(
-          "单田芳代表作|引人入胜的侠客江湖",
-          "8.9",
-          "单田芳代表作|引人入胜的侠客江湖",
-          "https://imagev2.xmcdn.com/group47/M05/53/60/wKgKk1ufEHXxZnLQAAKdqZFMMEU542.jpg",
-          "单田芳评书",
-          "https://imagev2.xmcdn.com/group1/M00/00/2E/wKgDrVCIoM3Sa9SCAAQJstX27gg351.jpg",
-          "相声"),
-      RecommendModel(
-          "龙虎风云会 | 单田芳经典",
-          "8.9",
-          "宋代风云际会，续热血沸腾的江山争霸",
-          "https://imagev2.xmcdn.com/storages/7078-audiofreehighqps/6D/8F/GKwRIDoFdLgCAALepwD7BU-I.jpg",
-          "单田芳评书",
-          "https://imagev2.xmcdn.com/group1/M00/00/2E/wKgDrVCIoM3Sa9SCAAQJstX27gg351.jpg",
-          "相声"),
-      RecommendModel(
-          "贫道遇到了和尚",
-          "8.0",
-          "唐僧转世啦，跟道士一块修电脑",
-          "https://imagev2.xmcdn.com/storages/a1ce-audiofreehighqps/A1/F1/CMCoOSQDX_nzAADB8ABd2nS6.jpg",
-          "幻樱空",
-          "https://imagev2.xmcdn.com/storages/4865-audiofreehighqps/B8/7A/GKwRIMAGUnEuAAMlWQFQ6ZIS.jpg",
-          "有声书"),
-      RecommendModel(
-          "单田芳代表作|引人入胜的侠客江湖",
-          "8.9",
-          "单田芳代表作|引人入胜的侠客江湖",
-          "https://imagev2.xmcdn.com/group47/M05/53/60/wKgKk1ufEHXxZnLQAAKdqZFMMEU542.jpg",
-          "单田芳评书",
-          "https://imagev2.xmcdn.com/group1/M00/00/2E/wKgDrVCIoM3Sa9SCAAQJstX27gg351.jpg",
-          "相声"),
-      RecommendModel(
-          "龙虎风云会 | 单田芳经典",
-          "8.9",
-          "宋代风云际会，续热血沸腾的江山争霸",
-          "https://imagev2.xmcdn.com/storages/7078-audiofreehighqps/6D/8F/GKwRIDoFdLgCAALepwD7BU-I.jpg",
-          "单田芳评书",
-          "https://imagev2.xmcdn.com/group1/M00/00/2E/wKgDrVCIoM3Sa9SCAAQJstX27gg351.jpg",
-          "相声"),
-      RecommendModel(
-          "贫道遇到了和尚",
-          "8.0",
-          "唐僧转世啦，跟道士一块修电脑",
-          "https://imagev2.xmcdn.com/storages/a1ce-audiofreehighqps/A1/F1/CMCoOSQDX_nzAADB8ABd2nS6.jpg",
-          "幻樱空",
-          "https://imagev2.xmcdn.com/storages/4865-audiofreehighqps/B8/7A/GKwRIMAGUnEuAAMlWQFQ6ZIS.jpg",
-          "有声书"),
-      RecommendModel(
-          "单田芳代表作|引人入胜的侠客江湖",
-          "8.9",
-          "单田芳代表作|引人入胜的侠客江湖",
-          "https://imagev2.xmcdn.com/group47/M05/53/60/wKgKk1ufEHXxZnLQAAKdqZFMMEU542.jpg",
-          "单田芳评书",
-          "https://imagev2.xmcdn.com/group1/M00/00/2E/wKgDrVCIoM3Sa9SCAAQJstX27gg351.jpg",
-          "相声"),
-      RecommendModel(
-          "龙虎风云会 | 单田芳经典",
-          "8.9",
-          "宋代风云际会，续热血沸腾的江山争霸",
-          "https://imagev2.xmcdn.com/storages/7078-audiofreehighqps/6D/8F/GKwRIDoFdLgCAALepwD7BU-I.jpg",
-          "单田芳评书",
-          "https://imagev2.xmcdn.com/group1/M00/00/2E/wKgDrVCIoM3Sa9SCAAQJstX27gg351.jpg",
-          "相声"),
-      RecommendModel(
-          "贫道遇到了和尚",
-          "8.0",
-          "唐僧转世啦，跟道士一块修电脑",
-          "https://imagev2.xmcdn.com/storages/a1ce-audiofreehighqps/A1/F1/CMCoOSQDX_nzAADB8ABd2nS6.jpg",
-          "幻樱空",
-          "https://imagev2.xmcdn.com/storages/4865-audiofreehighqps/B8/7A/GKwRIMAGUnEuAAMlWQFQ6ZIS.jpg",
-          "有声书"),
-    ];
-  }
+  Map<String, dynamic> toJson() => _$UserJWTToJson(this);
 }
 
 @JsonSerializable()
-class ClassificationModel {
-  String key;
-  String display;
+class Dicts {
+  List<Dict> dicts;
 
-  ClassificationModel(this.key, this.display);
+  Dicts({required this.dicts});
 
-  factory ClassificationModel.fromJson(Map<String, dynamic> json) =>
-      _$ClassificationModelFromJson(json);
+  factory Dicts.fromJson(Map<String, dynamic> json) =>
+      _$DictsFromJson(json);
 
-  Map<String, dynamic> toJson() => _$ClassificationModelToJson(this);
+  Map<String, dynamic> toJson() => _$DictsToJson(this);
+}
 
-  static List<ClassificationModel> genFake() {
-    return [
-      ClassificationModel("recommend", "推荐"),
-      ClassificationModel("novel", "有声小说"),
-      ClassificationModel("logic", "逻辑思维"),
-      ClassificationModel("hot", "热门🔥"),
-      ClassificationModel("update", "提升自我"),
-    ];
-  }
+@JsonSerializable()
+class Dict {
+  int id;
+  String word;
+  String katakana;
+  String audioUrl;
+  List<Simple> simple;
+  List<String> exampleSentences;
+
+  Dict({
+    required this.id,
+    required this.word,
+    required this.katakana,
+    required this.audioUrl,
+    required this.simple,
+    required this.exampleSentences,
+  });
+
+  factory Dict.fromJson(Map<String, dynamic> json) => _$DictFromJson(json);
+
+  Map<String, dynamic> toJson() => _$DictToJson(this);
+}
+
+@JsonSerializable()
+class Simple {
+  String attribute;
+  List<String> explains;
+
+  Simple({required this.attribute, required this.explains});
+
+  factory Simple.fromJson(Map<String, dynamic> json) =>
+      _$SimpleFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SimpleToJson(this);
 }

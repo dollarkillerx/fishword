@@ -39,37 +39,55 @@ Map<String, dynamic> _$GErrorItemToJson(GErrorItem instance) =>
       'message': instance.message,
     };
 
-RecommendModel _$RecommendModelFromJson(Map<String, dynamic> json) =>
-    RecommendModel(
-      json['title'] as String,
-      json['score'] as String,
-      json['subTitle'] as String,
-      json['img'] as String,
-      json['author'] as String,
-      json['authorImg'] as String,
-      json['type'] as String,
+UserJWT _$UserJWTFromJson(Map<String, dynamic> json) => UserJWT(
+      json['userID'] as String,
+      json['accessTokenString'] as String,
     );
 
-Map<String, dynamic> _$RecommendModelToJson(RecommendModel instance) =>
-    <String, dynamic>{
-      'title': instance.title,
-      'score': instance.score,
-      'subTitle': instance.subTitle,
-      'img': instance.img,
-      'author': instance.author,
-      'authorImg': instance.authorImg,
-      'type': instance.type,
+Map<String, dynamic> _$UserJWTToJson(UserJWT instance) => <String, dynamic>{
+      'userID': instance.userId,
+      'accessTokenString': instance.accessToken,
     };
 
-ClassificationModel _$ClassificationModelFromJson(Map<String, dynamic> json) =>
-    ClassificationModel(
-      json['key'] as String,
-      json['display'] as String,
+Dicts _$DictsFromJson(Map<String, dynamic> json) => Dicts(
+      dicts: (json['dicts'] as List<dynamic>)
+          .map((e) => Dict.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
-Map<String, dynamic> _$ClassificationModelToJson(
-        ClassificationModel instance) =>
-    <String, dynamic>{
-      'key': instance.key,
-      'display': instance.display,
+Map<String, dynamic> _$DictsToJson(Dicts instance) => <String, dynamic>{
+      'dicts': instance.dicts,
+    };
+
+Dict _$DictFromJson(Map<String, dynamic> json) => Dict(
+      id: json['id'] as int,
+      word: json['word'] as String,
+      katakana: json['katakana'] as String,
+      audioUrl: json['audioUrl'] as String,
+      simple: (json['simple'] as List<dynamic>)
+          .map((e) => Simple.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      exampleSentences: (json['exampleSentences'] as List<dynamic>)
+          .map((e) => e as String)
+          .toList(),
+    );
+
+Map<String, dynamic> _$DictToJson(Dict instance) => <String, dynamic>{
+      'id': instance.id,
+      'word': instance.word,
+      'katakana': instance.katakana,
+      'audioUrl': instance.audioUrl,
+      'simple': instance.simple,
+      'exampleSentences': instance.exampleSentences,
+    };
+
+Simple _$SimpleFromJson(Map<String, dynamic> json) => Simple(
+      attribute: json['attribute'] as String,
+      explains:
+          (json['explains'] as List<dynamic>).map((e) => e as String).toList(),
+    );
+
+Map<String, dynamic> _$SimpleToJson(Simple instance) => <String, dynamic>{
+      'attribute': instance.attribute,
+      'explains': instance.explains,
     };

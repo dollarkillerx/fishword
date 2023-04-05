@@ -7,8 +7,8 @@ import 'package:crypto/crypto.dart';
 
 import 'local_storage.dart';
 
-// const SERVER_API_URL = "http://192.168.31.66:8083";
-const SERVER_API_URL = "https://network.mechat.live";
+const SERVER_API_URL = "http://192.168.31.66:8001";
+// const SERVER_API_URL = "https://network.mechat.live";
 const APPID = "80f8342f0487";
 const APPVersion = 0.01;
 
@@ -36,7 +36,7 @@ class BaseProvider extends GetConnect implements IGraphQLClient {
     httpClient.addResponseModifier((request, response) {
       if (response.status.code! == 401) {
         LocalStorage.delJWT();
-        Get.toNamed(AppRoutes.NotFound);
+        Get.toNamed(AppRoutes.Login);
       }
 
       return response;
@@ -56,7 +56,7 @@ class BaseProvider extends GetConnect implements IGraphQLClient {
     // 41001 auth
     if (gResponse.GetError() != null) {
       if (gResponse.GetError()?.code == "41001") {
-        Get.toNamed(AppRoutes.NotFound);
+        Get.toNamed(AppRoutes.Login);
       }
     }
 
@@ -76,7 +76,7 @@ class BaseProvider extends GetConnect implements IGraphQLClient {
     // 41001 auth
     if (gResponse.GetError() != null) {
       if (gResponse.GetError()?.code == "41001") {
-        Get.toNamed(AppRoutes.NotFound);
+        Get.toNamed(AppRoutes.Login);
       }
     }
 

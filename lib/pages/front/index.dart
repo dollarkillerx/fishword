@@ -8,7 +8,7 @@ class FrontPage extends GetView<FrontController> {
   Widget build(BuildContext context) {
     return GetBuilder<FrontController>(builder: (controller) {
       return Scaffold(
-        body: Container(
+        body: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: 15),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -90,277 +90,270 @@ class FrontPage extends GetView<FrontController> {
               SizedBox(
                 height: 10,
               ),
-              Expanded(
-                  child: SingleChildScrollView(
-                child: Column(
+              Text(
+                "背书",
+                style: FishwordFont.baseFont,
+              ),
+              Container(
+                height: 200,
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                margin: EdgeInsets.only(bottom: 5),
+                decoration: BoxDecoration(
+                  color: Colors.grey.withOpacity(0.3),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Row(
                   children: [
-                    Text(
-                      "背书",
-                      style: FishwordFont.baseFont,
-                    ),
                     Container(
-                      height: 200,
-                      padding: EdgeInsets.symmetric(horizontal: 10),
-                      margin: EdgeInsets.only(bottom: 5),
-                      decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(0.3),
-                        borderRadius: BorderRadius.circular(20),
+                      child: Image.asset(
+                        "assets/images/nihon.png",
+                        fit: BoxFit.cover,
                       ),
-                      child: Row(
+                      height: 180,
+                      width: 100,
+                      clipBehavior: Clip.antiAlias,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20)),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    SizedBox(
+                      width: Get.width - 160,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
+                          Text(
+                            "<瞬 全宇宙> 必备单词",
+                            style: FishwordFont.baseFont.copyWith(
+                                fontSize: 20,
+                                overflow: TextOverflow.ellipsis),
+                          ),
+                          Text(
+                            "精选4级考试单词",
+                            maxLines: 2,
+                            style: FishwordFont.baseFont.copyWith(
+                                overflow: TextOverflow.ellipsis,
+                                fontSize: 15,
+                                color: Colors.grey),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
                           Container(
-                            child: Image.asset(
-                              "assets/images/nihon.png",
-                              fit: BoxFit.cover,
+                            child: Text(
+                              "去闯关",
+                              style: FishwordFont.baseFont.copyWith(
+                                  color: Colors.white, fontSize: 20),
                             ),
-                            height: 180,
-                            width: 100,
-                            clipBehavior: Clip.antiAlias,
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 2),
                             decoration: BoxDecoration(
+                                color: Colors.blueAccent,
                                 borderRadius: BorderRadius.circular(20)),
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          SizedBox(
-                            width: Get.width - 160,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Text(
-                                  "<瞬 全宇宙> 必备单词",
-                                  style: FishwordFont.baseFont.copyWith(
-                                      fontSize: 20,
-                                      overflow: TextOverflow.ellipsis),
-                                ),
-                                Text(
-                                  "精选4级考试单词",
-                                  maxLines: 2,
-                                  style: FishwordFont.baseFont.copyWith(
-                                      overflow: TextOverflow.ellipsis,
-                                      fontSize: 15,
-                                      color: Colors.grey),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Container(
-                                  child: Text(
-                                    "去闯关",
-                                    style: FishwordFont.baseFont.copyWith(
-                                        color: Colors.white, fontSize: 20),
-                                  ),
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: 20, vertical: 2),
-                                  decoration: BoxDecoration(
-                                      color: Colors.blueAccent,
-                                      borderRadius: BorderRadius.circular(20)),
-                                )
-                              ],
-                            ),
                           )
                         ],
                       ),
-                    ),
-                    Container(
-                      height: 200,
-                      padding: EdgeInsets.symmetric(horizontal: 10),
-                      margin: EdgeInsets.only(bottom: 5),
-                      decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(0.3),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Row(
-                        children: [
-                          Container(
-                            child: Image.asset(
-                              "assets/images/nihon.png",
-                              fit: BoxFit.cover,
-                            ),
-                            height: 180,
-                            width: 100,
-                            clipBehavior: Clip.antiAlias,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20)),
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          SizedBox(
-                            width: Get.width - 160,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Text(
-                                  "<瞬 全宇宙> 必备单词",
-                                  style: FishwordFont.baseFont.copyWith(
-                                      fontSize: 20,
-                                      overflow: TextOverflow.ellipsis),
-                                ),
-                                Text(
-                                  "精选4级考试单词",
-                                  maxLines: 2,
-                                  style: FishwordFont.baseFont.copyWith(
-                                      overflow: TextOverflow.ellipsis,
-                                      fontSize: 15,
-                                      color: Colors.grey),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Container(
-                                  child: Text(
-                                    "去闯关",
-                                    style: FishwordFont.baseFont.copyWith(
-                                        color: Colors.white, fontSize: 20),
-                                  ),
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: 20, vertical: 2),
-                                  decoration: BoxDecoration(
-                                      color: Colors.blueAccent,
-                                      borderRadius: BorderRadius.circular(20)),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    Container(
-                      height: 200,
-                      padding: EdgeInsets.symmetric(horizontal: 10),
-                      margin: EdgeInsets.only(bottom: 5),
-                      decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(0.3),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Row(
-                        children: [
-                          Container(
-                            child: Image.asset(
-                              "assets/images/nihon.png",
-                              fit: BoxFit.cover,
-                            ),
-                            height: 180,
-                            width: 100,
-                            clipBehavior: Clip.antiAlias,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20)),
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          SizedBox(
-                            width: Get.width - 160,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Text(
-                                  "<瞬 全宇宙> 必备单词",
-                                  style: FishwordFont.baseFont.copyWith(
-                                      fontSize: 20,
-                                      overflow: TextOverflow.ellipsis),
-                                ),
-                                Text(
-                                  "精选4级考试单词",
-                                  maxLines: 2,
-                                  style: FishwordFont.baseFont.copyWith(
-                                      overflow: TextOverflow.ellipsis,
-                                      fontSize: 15,
-                                      color: Colors.grey),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Container(
-                                  child: Text(
-                                    "去闯关",
-                                    style: FishwordFont.baseFont.copyWith(
-                                        color: Colors.white, fontSize: 20),
-                                  ),
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: 20, vertical: 2),
-                                  decoration: BoxDecoration(
-                                      color: Colors.blueAccent,
-                                      borderRadius: BorderRadius.circular(20)),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                    Container(
-                      height: 200,
-                      padding: EdgeInsets.symmetric(horizontal: 10),
-                      margin: EdgeInsets.only(bottom: 5),
-                      decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(0.3),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Row(
-                        children: [
-                          Container(
-                            child: Image.asset(
-                              "assets/images/nihon.png",
-                              fit: BoxFit.cover,
-                            ),
-                            height: 180,
-                            width: 100,
-                            clipBehavior: Clip.antiAlias,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20)),
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          SizedBox(
-                            width: Get.width - 160,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Text(
-                                  "<瞬 全宇宙> 必备单词",
-                                  style: FishwordFont.baseFont.copyWith(
-                                      fontSize: 20,
-                                      overflow: TextOverflow.ellipsis),
-                                ),
-                                Text(
-                                  "精选4级考试单词",
-                                  maxLines: 2,
-                                  style: FishwordFont.baseFont.copyWith(
-                                      overflow: TextOverflow.ellipsis,
-                                      fontSize: 15,
-                                      color: Colors.grey),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Container(
-                                  child: Text(
-                                    "去闯关",
-                                    style: FishwordFont.baseFont.copyWith(
-                                        color: Colors.white, fontSize: 20),
-                                  ),
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: 20, vertical: 2),
-                                  decoration: BoxDecoration(
-                                      color: Colors.blueAccent,
-                                      borderRadius: BorderRadius.circular(20)),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
+                    )
                   ],
                 ),
-              ))
+              ),
+              Container(
+                height: 200,
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                margin: EdgeInsets.only(bottom: 5),
+                decoration: BoxDecoration(
+                  color: Colors.grey.withOpacity(0.3),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Row(
+                  children: [
+                    Container(
+                      child: Image.asset(
+                        "assets/images/nihon.png",
+                        fit: BoxFit.cover,
+                      ),
+                      height: 180,
+                      width: 100,
+                      clipBehavior: Clip.antiAlias,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20)),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    SizedBox(
+                      width: Get.width - 160,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            "<瞬 全宇宙> 必备单词",
+                            style: FishwordFont.baseFont.copyWith(
+                                fontSize: 20,
+                                overflow: TextOverflow.ellipsis),
+                          ),
+                          Text(
+                            "精选4级考试单词",
+                            maxLines: 2,
+                            style: FishwordFont.baseFont.copyWith(
+                                overflow: TextOverflow.ellipsis,
+                                fontSize: 15,
+                                color: Colors.grey),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Container(
+                            child: Text(
+                              "去闯关",
+                              style: FishwordFont.baseFont.copyWith(
+                                  color: Colors.white, fontSize: 20),
+                            ),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 2),
+                            decoration: BoxDecoration(
+                                color: Colors.blueAccent,
+                                borderRadius: BorderRadius.circular(20)),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                height: 200,
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                margin: EdgeInsets.only(bottom: 5),
+                decoration: BoxDecoration(
+                  color: Colors.grey.withOpacity(0.3),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Row(
+                  children: [
+                    Container(
+                      child: Image.asset(
+                        "assets/images/nihon.png",
+                        fit: BoxFit.cover,
+                      ),
+                      height: 180,
+                      width: 100,
+                      clipBehavior: Clip.antiAlias,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20)),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    SizedBox(
+                      width: Get.width - 160,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            "<瞬 全宇宙> 必备单词",
+                            style: FishwordFont.baseFont.copyWith(
+                                fontSize: 20,
+                                overflow: TextOverflow.ellipsis),
+                          ),
+                          Text(
+                            "精选4级考试单词",
+                            maxLines: 2,
+                            style: FishwordFont.baseFont.copyWith(
+                                overflow: TextOverflow.ellipsis,
+                                fontSize: 15,
+                                color: Colors.grey),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Container(
+                            child: Text(
+                              "去闯关",
+                              style: FishwordFont.baseFont.copyWith(
+                                  color: Colors.white, fontSize: 20),
+                            ),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 2),
+                            decoration: BoxDecoration(
+                                color: Colors.blueAccent,
+                                borderRadius: BorderRadius.circular(20)),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                height: 200,
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                margin: EdgeInsets.only(bottom: 5),
+                decoration: BoxDecoration(
+                  color: Colors.grey.withOpacity(0.3),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Row(
+                  children: [
+                    Container(
+                      child: Image.asset(
+                        "assets/images/nihon.png",
+                        fit: BoxFit.cover,
+                      ),
+                      height: 180,
+                      width: 100,
+                      clipBehavior: Clip.antiAlias,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20)),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    SizedBox(
+                      width: Get.width - 160,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            "<瞬 全宇宙> 必备单词",
+                            style: FishwordFont.baseFont.copyWith(
+                                fontSize: 20,
+                                overflow: TextOverflow.ellipsis),
+                          ),
+                          Text(
+                            "精选4级考试单词",
+                            maxLines: 2,
+                            style: FishwordFont.baseFont.copyWith(
+                                overflow: TextOverflow.ellipsis,
+                                fontSize: 15,
+                                color: Colors.grey),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Container(
+                            child: Text(
+                              "去闯关",
+                              style: FishwordFont.baseFont.copyWith(
+                                  color: Colors.white, fontSize: 20),
+                            ),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 20, vertical: 2),
+                            decoration: BoxDecoration(
+                                color: Colors.blueAccent,
+                                borderRadius: BorderRadius.circular(20)),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              )
             ],
           ),
         ),

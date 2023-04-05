@@ -1,4 +1,5 @@
 import 'package:fishword/constants/colors.dart';
+import 'package:fishword/widgets/debounce_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'controller.dart';
@@ -17,169 +18,44 @@ class DictionaryPage extends GetView<DictionaryController> {
               ),
               Container(
                 padding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
-                child: TextField(
-                  showCursor: false,
-                  decoration: InputDecoration(
-                    hintText: '输入查询',
-                    // border: outlineInputBorder,
-                    enabledBorder: outlineInputBorder,
-                    focusedBorder: outlineInputBorder,
-                  ),
+                child: DebounceTextField(
+                  hintText: "输入查询",
+                  debounceDelay: Duration(milliseconds: 300),
+                  onChanged: (String value) {
+                    value = value.trim();
+                    if (value != "") {
+                      controller.search(value);
+                    }
+                  },
                 ),
               ),
-              Text(
-                "浏览历史: ",
-                style: FishwordFont.baseFont,
-              ),
+              // Text(
+              //   "浏览历史: ",
+              //   style: FishwordFont.baseFont,
+              // ),
               Expanded(
                   child: SingleChildScrollView(
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 10),
                   child: Column(
                     children: [
-                      Container(
-                        child: Row(
-                          children: [
-                            Icon(Icons.abc, size: 50,),
-                            SizedBox(
-                              width: 10,
+                      ...?controller.dicts?.map((e) => Container(
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.abc,
+                                  size: 50,
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Text(
+                                  '${e.word}  ${e.katakana}',
+                                  style: FishwordFont.baseFont,
+                                )
+                              ],
                             ),
-                            Text("重い", style: FishwordFont.baseFont,)
-                          ],
-                        ),
-                      ),
-                      Container(
-                        child: Row(
-                          children: [
-                            Icon(Icons.abc, size: 50,),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text("重い", style: FishwordFont.baseFont,)
-                          ],
-                        ),
-                      ),
-                      Container(
-                        child: Row(
-                          children: [
-                            Icon(Icons.abc, size: 50,),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text("重い", style: FishwordFont.baseFont,)
-                          ],
-                        ),
-                      ),
-                      Container(
-                        child: Row(
-                          children: [
-                            Icon(Icons.abc, size: 50,),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text("重い", style: FishwordFont.baseFont,)
-                          ],
-                        ),
-                      ),
-                      Container(
-                        child: Row(
-                          children: [
-                            Icon(Icons.abc, size: 50,),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text("重い", style: FishwordFont.baseFont,)
-                          ],
-                        ),
-                      ),
-                      Container(
-                        child: Row(
-                          children: [
-                            Icon(Icons.abc, size: 50,),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text("重い", style: FishwordFont.baseFont,)
-                          ],
-                        ),
-                      ),
-                      Container(
-                        child: Row(
-                          children: [
-                            Icon(Icons.abc, size: 50,),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text("重い", style: FishwordFont.baseFont,)
-                          ],
-                        ),
-                      ),
-                      Container(
-                        child: Row(
-                          children: [
-                            Icon(Icons.abc, size: 50,),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text("重い", style: FishwordFont.baseFont,)
-                          ],
-                        ),
-                      ),
-                      Container(
-                        child: Row(
-                          children: [
-                            Icon(Icons.abc, size: 50,),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text("重い", style: FishwordFont.baseFont,)
-                          ],
-                        ),
-                      ),
-                      Container(
-                        child: Row(
-                          children: [
-                            Icon(Icons.abc, size: 50,),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text("重い", style: FishwordFont.baseFont,)
-                          ],
-                        ),
-                      ),
-                      Container(
-                        child: Row(
-                          children: [
-                            Icon(Icons.abc, size: 50,),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text("重い", style: FishwordFont.baseFont,)
-                          ],
-                        ),
-                      ),
-                      Container(
-                        child: Row(
-                          children: [
-                            Icon(Icons.abc, size: 50,),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text("重い", style: FishwordFont.baseFont,)
-                          ],
-                        ),
-                      ),
-                      Container(
-                        child: Row(
-                          children: [
-                            Icon(Icons.abc, size: 50,),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text("重い", style: FishwordFont.baseFont,)
-                          ],
-                        ),
-                      ),
+                          ))
                     ],
                   ),
                 ),
@@ -190,10 +66,4 @@ class DictionaryPage extends GetView<DictionaryController> {
       );
     });
   }
-
-  final outlineInputBorder = OutlineInputBorder(
-      borderSide: BorderSide(
-        color: Colors.black,
-      ),
-      borderRadius: BorderRadius.circular(25));
 }
