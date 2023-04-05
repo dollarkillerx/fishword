@@ -7,8 +7,8 @@ import 'package:crypto/crypto.dart';
 
 import 'local_storage.dart';
 
-// const SERVER_API_URL = "http://192.168.31.66:8001";
-const SERVER_API_URL = "https://fishword_api.dollarkiller.com";
+// const SERVER_API_URL = "http://192.168.31.66:8015";
+const SERVER_API_URL = "http://43.135.75.195:8015";
 const APPID = "80f8342f0487";
 const APPVersion = 0.01;
 
@@ -71,6 +71,15 @@ class BaseProvider extends GetConnect implements IGraphQLClient {
       "variables": variables,
     });
 
+    if (resp.hasError) {
+      print(resp.bodyBytes);
+    }
+
+    print("---- object ----");
+    print(resp.isOk);
+    print(resp.body);
+    print("---- object ----");
+
     GResponse gResponse = GResponse.fromJson(resp.body);
 
     // 41001 auth
@@ -82,6 +91,4 @@ class BaseProvider extends GetConnect implements IGraphQLClient {
 
     return gResponse;
   }
-
 }
-
