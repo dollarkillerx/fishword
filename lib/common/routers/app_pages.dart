@@ -9,8 +9,8 @@ import '../../pages/home/index.dart';
 import 'app_routes.dart';
 
 class AppPages {
-  // static const InitRoute = AppRoutes.Recommend;
   static const InitRoute = AppRoutes.Login;
+  // static const InitRoute = AppRoutes.Login;
 
   static final routers = [
     // 主页导航

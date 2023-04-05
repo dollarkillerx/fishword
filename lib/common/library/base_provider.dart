@@ -7,8 +7,8 @@ import 'package:crypto/crypto.dart';
 
 import 'local_storage.dart';
 
-const SERVER_API_URL = "http://192.168.31.66:8001";
-// const SERVER_API_URL = "https://network.mechat.live";
+// const SERVER_API_URL = "http://192.168.31.66:8001";
+const SERVER_API_URL = "https://fishword_api.dollarkiller.com";
 const APPID = "80f8342f0487";
 const APPVersion = 0.01;
 
