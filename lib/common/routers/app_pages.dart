@@ -1,3 +1,5 @@
+import 'package:fishword/pages/dictionary/pages/binding.dart';
+import 'package:fishword/pages/dictionary/pages/index.dart';
 import 'package:fishword/pages/login/binding.dart';
 import 'package:fishword/pages/login/index.dart';
 import 'package:get/get.dart';
@@ -22,6 +24,11 @@ class AppPages {
       name: AppRoutes.Login,
       page: () => LoginPage(),
       binding: LoginBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.DictionaryDetails,
+      page: () => DictionaryDetailsPage(),
+      binding: DictionaryDetailsBinding(),
     ),
   ];
 

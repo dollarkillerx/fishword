@@ -1,3 +1,4 @@
+import 'package:fishword/common/routers/app_routes.dart';
 import 'package:fishword/constants/colors.dart';
 import 'package:fishword/widgets/debounce_text.dart';
 import 'package:flutter/material.dart';
@@ -39,23 +40,30 @@ class DictionaryPage extends GetView<DictionaryController> {
                   padding: EdgeInsets.symmetric(horizontal: 10),
                   child: Column(
                     children: [
-                      ...?controller.dicts?.map((e) => Container(
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.abc,
-                                  size: 50,
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                  '${e.word}  ${e.katakana}',
-                                  style: FishwordFont.baseFont,
-                                )
-                              ],
-                            ),
-                          ))
+                      ...?controller.dicts?.map((e) => InkWell(
+                        onTap: () {
+                          Get.toNamed(AppRoutes.DictionaryDetails, arguments: {
+                            "dict": e,
+                          });
+                        },
+                        child: Container(
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.abc,
+                                size: 50,
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Text(
+                                '${e.word}  ${e.katakana}',
+                                style: FishwordFont.baseFont,
+                              )
+                            ],
+                          ),
+                        ),
+                      ))
                     ],
                   ),
                 ),
